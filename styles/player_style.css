@@ -1,0 +1,118 @@
+.audio_player
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #282828;
+    resize: both;
+}
+#player_img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    margin-left: 20px;
+    
+}
+#song_description
+{
+    font-size: 11px;
+    color: rgb(170, 170, 170);
+}
+.descs
+{
+    margin-left: 15px;
+}
+#player_btn
+{
+    width: 50px;
+    height: 50px;
+}
+#music
+{
+    width: 1000px;
+    outline: none;
+}
+.audioplayer_play
+{
+    height: 40px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.player_controller
+{
+    margin: 15% auto;
+}
+.audio_wrapper
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.time_control
+{
+    height: 30px;
+    width: auto;
+}
+.fif_control
+{
+    height: 20px;
+    width: auto;
+    margin: 20px;
+}
+#timeline{
+    width: 40vw;
+    box-sizing: border-box;
+    height: 5px;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+	background: #b3b3b3;
+    position: relative;
+}
+.timeline_wrapper
+{
+    display: flex;
+    position: relative;
+    margin-top: 15% auto;
+    align-items: center;
+}
+#playhead{
+    width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: white;
+    position: absolute;
+    left: 0px;
+}
+#loop_check
+{
+    display: none;
+}
+#loop_btn
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+#loop
+{
+    height: 20px;
+    width: 15px;
+}
+#vol_control
+{
+    width: 10vw;
+    color: green;
+    margin-left: 20px;
+}   

@@ -1,0 +1,113 @@
+* {padding:0; margin:0; }
+
+body
+{
+    background-color: #121212;
+    color: white;
+    font-family: arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+.sidemenu 
+{
+    display: block;
+    position: fixed;
+    width: 235px;
+    height: 100%;
+    background-color: black;
+}
+.sidemenu ul
+{
+    list-style: none;
+    width: 235px;
+    height: calc(100% - 100px);
+    overflow-y: auto;  
+}
+.sidemenu ul li 
+{
+    margin: 10px;
+    max-width: -webkit-fill-available;  
+}
+#nav_logo
+{
+    height: auto;
+    width: 135px;
+    margin: 20px;
+}
+.nav_icons
+{
+    height: auto;
+    width: 25px;
+    margin-right: 16px;
+}
+#liked_icon
+{
+    height: auto;
+    width: 35px;
+    margin-right: 16px;
+}
+#create_logo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: black;
+    height: 35px;
+    width: 35px;
+    margin-right: 16px;
+    background-color: #b3b3b3;
+    transition: 0.25s;
+}
+#create_id
+{
+    margin-bottom: -15px;
+    cursor: pointer;
+}
+#create_id:hover #create_logo
+{
+    background-color: white;
+}
+.options
+{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    transition: 0.20s;
+}
+.options:hover
+{
+    background-color: #282828;
+}
+.options_1
+{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+#playlist_title
+{
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+#hr_division
+{
+    width: 195px;
+    border-color:  #282828;
+    margin: auto;
+}
+.new_playlist
+{
+    display: block;
+    padding: 8px;
+    width: 235px;
+    transition: 0.20s;
+    word-break: break-all;
+}
+.new_playlist:hover
+{
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

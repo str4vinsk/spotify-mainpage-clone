@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta id="screen_width" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify – Web player</title>
+    <script type="text/javascript" src="scripts/cardmanager.js"></script>
+    <script type="text/javascript" src="scripts/audiomanager.js"></script>
+    <link rel="shortcut icon" href="resources/Icons/favicon.ico">
+    <link rel="stylesheet" href="styles/bar_style.css" type="text/css" />
+    <link rel="stylesheet" href="styles/main_style.css" type="text/css" />
+    <link rel="stylesheet" href="styles/player_style.css" type="text/css" />
+</head>
+<body>
+    <!--The sidebar expand button (when the window size is less than 700px)-->
+    <input type="checkbox" id="expand_btn" />
+    <label id="expand_icon" for="expand_btn"><img src="resources/Icons/expand.jpg" id="expand_image" /></label>
+
+    <!--The sidebar menu, all the playlists that you create will be placed here-->
+    <nav class="sidemenu">
+        <ul id="sideul">
+            <img src="resources/Icons/white_logo.png" id="nav_logo" />
+            <li class="options"><img src="resources/Icons/home.png" class="nav_icons">Inicio</li>
+            <li class="options"><img src="resources/Icons/search.png" class="nav_icons">Buscar</li>
+            <li class="options"><img src="resources/Icons/lib.png" class="nav_icons">Sua Biblioteca</li>
+            <li class="options_1"><p id="playlist_title">PLAYLISTS</p></li>
+            <li class="options_1" id="create_id" onclick="showModal()"><div id="create_logo"> + </div>Criar Playlist</li>
+            <li class="options_1"><img src="resources/Icons/likedmusic.png" id="liked_icon">Músicas Curtidas</li>
+            <hr id="hr_division"></hr>
+            <li class="options_1" id="playlist_appender"></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="main-row">
+            <ul class="items">
+
+                <!--  
+
+                    CARD EXAMPLE
+
+                    <li class="playlist_card" id="songname">
+                    
+                        The card data, here we have the song name, the author and the song image
+                    
+                        <img src="resources/Logos/song_image.jpg" class="playlist_logos">
+                        <p class="playlist_title" data-value="SONG TITLE VALUE">SONG TITLE TEXT</p>
+                        <p class="playlist_author">THE AUTHOR OF THE SONG</p>
+
+                        
+                        <a data-value="audios/songfile.mp3" id="songname-audio"></a>
+
+                        <img src="resources/Icons/playbtn.png" class="playbtn" id="songname-playbtn" onclick="LoadPlayer(this)">
+                    </li>
+                --> 
+
+
+                <h2>Tocado Recentemente</h2>
+                <div id="recent">
+                    <li class="playlist_card" id="flow">
+                        <img src="resources/Logos/flow.png" class="playlist_logos">
+                        <p class="playlist_title" data-value="Flow Podcast" class="reduce">Flow Podcast</p>
+                        <p class="playlist_author">Igor e Monark</p>
+
+                        <a data-value="https://docs.google.com/uc?export=download&id=1RDONti-xUOnm2lmoSV4WVo3XNrrhJvYQ" id="flow-audio"></a>
+
+                        <img src="resources/Icons/playbtn.png" class="playbtn" id="flow-playbtn" onclick="LoadPlayer(this)">
+                    </li>
+
+                    <li class="playlist_card" id="sinapse">
+                        <img src="resources/Logos/sinapse.png" class="playlist_logos">
+                        <p class="playlist_title" data-value="Sinapse" class="reduce">Sinapse</p>
+                        <p class="playlist_author">Ciência Todo Dia</p>
+
+                        <a data-value="https://docs.google.com/uc?export=download&id=1Lp9C4jYO47p-Zw4NyB7jIFZxko-eBZWe" id="sinapse-audio"></a>
+
+                        <img src="resources/Icons/playbtn.png" class="playbtn" id="sinapse-playbtn" onclick="LoadPlayer(this)">
+                    </li>
+                </div>
+                
+                <h2>Músicas Mais Populares</h2>
+                <h3>Quanto mais você escutar, melhores recomendações vai receber.</h3>
+
+                <li class="playlist_card" id="daydream">
+                    <img src="resources/Logos/daydream.jpg" class="playlist_logos">
+                    <p class="playlist_title" data-value="Daydream in Blue" class="reduce">Daydream In Blue</p>
+                    <p class="playlist_author">I Monster</p>
+
+                    <a data-value="https://docs.google.com/uc?export=download&id=1v9ue6dbu2SJ7_BvZqY1oaVvYEsQeI-2A" id="daydream-audio"></a>
+
+                    <img src="resources/Icons/playbtn.png" class="playbtn" id="daydream-playbtn" onclick="LoadPlayer(this)">
+                </li>
+
+                <li class="playlist_card" id="warriors">
+                    <img src="resources/Logos/warriors.jpg" class="playlist_logos">
+                    <p class="playlist_title" data-value="2WEI feat. Edda Hayes - Warriors">2WEI feat. Edda Hayes - Warriors</p>
+                    <p class="playlist_author" data-value="Riot Games" class="reduce">Riot Games</p>
+
+                    <a data-value="https://docs.google.com/uc?export=download&id=1-J8pxXqUbhE1RBmv-NKBLRljosUV1D_W" id="warriors-audio"></a>
+
+                    <img src="resources/Icons/playbtn.png" class="playbtn" id="warriors-playbtn" onclick="LoadPlayer(this)">
+                </li>
+
+                <li class="playlist_card" id="letsgo">
+                    <img src="resources/Logos/letsgo.jpg" class="playlist_logos">
+                    <p class="playlist_title" data-value="Let's Go" class="reduce">Let's Go</p>
+                    <p class="playlist_author">Stuck in the Sound</p>
+
+                    <a data-value="https://docs.google.com/uc?export=download&id=1YqlE63TVUGJR80U_IW8MsUQcf56BHyrC" id="letsgo-audio"></a>
+
+                    <img src="resources/Icons/playbtn.png" class="playbtn" id="letsgo-playbtn" onclick="LoadPlayer(this)">
+                </li>
+
+                <li class="playlist_card" id="rasputin">
+                    <!-- The card data, here we have the song name, the author and the song image -->
+                    <img src="resources/Logos/rasputin.jpg" class="playlist_logos">
+                    <p class="playlist_title" data-value="RASPUTIN Vladimir Putin" class="reduce">RASPUTIN Vladimir Putin</p>
+                    <p class="playlist_author">Love The Way You Move</p>
+
+                    <!-- The audio file -->
+                    <a data-value="https://docs.google.com/uc?export=download&id=18kP4GQcfGgqXRAvM5_qRNv8zSnLPBKN9" id="rasputin-audio"></a>
+
+                    <img src="resources/Icons/playbtn.png" class="playbtn" id="rasputin-playbtn" onclick="LoadPlayer(this)">
+                </li>
+
+                <h2>Suas Músicas</h2>
+                <h3>Sempre que você criar uma nova playlist o card dela aparecera aqui!</h3>
+            </ul>
+        </div>
+
+        <!--Audio player footer div-->
+        <div class="audio_player">  
+            <div class="audio_player_description">
+                <!--The song data, author, description, song name, etc.-->
+                <img id="player_img" src="resources/Logos/sinapse.png" />
+                <div class="descs">
+                    <p id="song_name">Titulo</p>
+                    <p id="song_description">Descrição</p>
+                </div>
+            </div>
+
+            <div class="player_controller">
+                <!--Here is our audio player-->
+                <div class="audio_wrapper">
+                    <img src="resources/Icons/lastfif.png" class="fif_control" onclick="LastFifSec()" />
+                    <img src="resources/Icons/back.png" class="time_control" onclick="Previous()" />
+                    <img src="resources/Icons/playaudio.jpg" class="audioplayer_play" onclick="PlayMusic()"/>
+                    <img src="resources/Icons/forward.png" class="time_control" onclick="Next()" />
+                    <img src="resources/Icons/nextfif.png" class="fif_control" onclick="NextFifSec()" />
+                    <input type="checkbox" id="loop_check" />
+                    <label id="loop_btn" for="loop_check" onclick="checkLoop()"><img src="resources/Icons/loop.png" id="loop" /></label>
+                </div>
+
+                <!--The custom timeline-->
+                <div class="timeline_wrapper">
+                    <span id="currentTimeline">00:00</span>
+                    <div id="timeline">
+                        <div id="playhead"></div>
+                    </div>
+                    <span id="totalTime">00:00</span>
+                    
+                    <!--Volume Controller-->
+                    <input id="vol_control" type="range" min="0" max="100" value="100" step="1"></input>
+                </div>
+
+                <!--The audio source-->
+                <audio id="music">
+                    <source src="" type="audio/mp3" id="music_source">
+                </audio>
+            </div>
+        </div>
+    </div>
+    
+    <!--The playlist creation modal-->
+    <div class="modal">
+        <div class="modal-overlay">
+            <input type="button" id="close_modal" onclick="hideModal()" value="X" />
+            <h1 id="new_playlist_title">Criar Nova Playlist</h1>
+            <div class="modal-body">
+                <p>Criar Nova Playlist</p>
+                <input type="textbox" class="modal-box" placeholder="Nova Playlist">
+            </div>
+            <input type="button" id="createbtn" onclick="createPlaylist()" value="CRIAR" />
+        </div>
+    </div>
+    <script>
+        // Global variables
+        // ----------------------------------------------------------------
+
+        var length = 15
+        var title_dom = document.getElementsByClassName('playlist_title')
+
+        // Get the modal overlay
+        var modal = document.getElementsByClassName("modal-overlay")[0]
+        
+        // Card's wrapper
+        var cardul = document.getElementsByClassName('items')[0]
+
+        // Get every element of the footer audio player
+        var startBtn = document.getElementById('player_btn')
+        var playerImage = document.getElementById('player_img')
+        var playerName = document.getElementById('song_name')
+        var playerDesc = document.getElementById('song_description')
+
+        var recentmusic = document.getElementById("recent")
+
+        // Get the audio player resources
+        var source = document.getElementById('music_source')
+        var music = document.getElementById('music')
+
+        // Music Player Controllers and Infos
+        var playandpause = document.getElementsByClassName('audioplayer_play')[0]
+        var totalTime = document.getElementById('totalTime')
+        var currentTimeText = document.getElementById('currentTimeline')
+        var playhead = document.getElementById("playhead")
+        
+        // Loop Control
+        var loopbtn = document.getElementById("loop_check")
+        var loopstyle = document.getElementById("loop_btn")
+
+        // Volume Control
+        var volcontroller = document.getElementById("vol_control")
+        
+        // Side Menu and The Main Container
+        var sideMenu = document.getElementsByClassName('sidemenu')[0]
+        var cont = document.getElementsByClassName('container')[0]
+        
+
+        // Function to set multiple atributtes
+        function setAttributes(el, attrs) {
+            for(var key in attrs) {
+                el.setAttribute(key, attrs[key])
+            }
+        }
+
+        // Change Listerners
+        volcontroller.addEventListener('change', set_volume)
+        volcontroller.addEventListener('input', set_volume)
+
+        music.addEventListener("timeupdate", function()
+        {
+            var duration = this.duration;
+            var time = this.currentTime;
+            var percentage = (time / duration) * 100; 
+            playhead.style.left = percentage * 0.4 + 'vw'
+
+            var currTime = Math.floor(music.currentTime).toString(); 
+            currentTimeText.innerHTML = formatSecondsAsTime(currTime)
+
+            var duration = Math.floor(music.duration).toString();
+            totalTime.innerHTML = formatSecondsAsTime(duration)
+        })
+
+        // Modal controller
+        function showModal()
+        {
+            window.modal.style.display = "flex"
+        }
+        function hideModal()
+        {
+            window.modal.style.display = "none"
+        }
+
+        // Do the ... effect on the card title
+        for(l in title_dom)
+        {
+            if(title_dom[l].innerHTML.length > length)
+            {
+                title_dom[l].innerHTML = title_dom[l].innerHTML.substr(0, length)+"..."
+            }
+        }   
+    </script>
+</body>
+</html>/
