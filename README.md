@@ -47,4 +47,4 @@ example: firefox index.html
         </sub>
     </td>
   </tr>
-</table
+</table>
