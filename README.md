@@ -5,7 +5,14 @@ This is a simple clone of the spotify main page, this project was made using jus
 <br />
 <sub>This project was not made to be extremely practical or to use the most modern technologies, the only purpose of this project is to serve as a challenge in my learning process</sub>
 
-<hr>
+## 👀 Preview
+
+You can see the site preview on github pages!
+
+
+ - https://str4vinsk.github.io/spotify-mainpage-clone/
+
+---
 
 ## 💾 Installing 
 
