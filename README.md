@@ -5,6 +5,11 @@ This is a simple clone of the spotify main page, this project was made using jus
 <br />
 <sub>This project was not made to be extremely practical or to use the most modern technologies, the only purpose of this project is to serve as a challenge in my learning process</sub>
 
+## Screenshots
+
+![Screenshot](./Screenshot.png)
+![Screenshot](./Mobile.png)
+
 ## 👀 Preview
 
 You can see the site preview on github pages!
